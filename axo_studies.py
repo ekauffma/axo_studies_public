@@ -45,76 +45,76 @@ n_files = 1                                # number of files to process (-1 for 
 coffea_step_size = 50_000                  # step size for coffea processor
 coffea_files_per_batch = 1                 # files per batch for coffea processor
 
-# which reco objects to process
+# which reco objects to process (comment out unwanted list items)
 reco_objects = [
-    "ScoutingPFJet",
-    "ScoutingElectron",
-    "ScoutingMuonNoVtx",
-    "ScoutingPhoton"
+    # "ScoutingPFJet",
+    # "ScoutingElectron",
+    # "ScoutingMuonNoVtx",
+    # "ScoutingPhoton"
 ] 
-# which l1 objects to process
+# which l1 objects to process (comment out unwanted list items)
 l1_objects = [
-    "L1Jet"
+    # "L1Jet"
 ] 
 
-# which hists to save (comment out unwanted)
+# which hists to save (comment out unwanted list items, leave keys uncommented)
 hist_selection = {
     "1d_scalar": [
-        "anomaly_score"                       # axol1tl anomaly score
+        "anomaly_score",                      # axol1tl anomaly score
         "l1ht",                               # ht of l1 objects
         "l1met",                              # MET of l1 objects
         "total_l1mult",                       # total l1 object multiplicity
-        "total_l1pt",                         # total l1 pt
-        "scoutinght",                         # ht of scouting objects
-        "scoutingmet",                        # MET of scouting objects
-        "total_scoutingmult",                 # total scouting object multiplicity
-        "total_scoutingpt",                   # total scouting pt
+        # "total_l1pt",                         # total l1 pt
+        # "scoutinght",                         # ht of scouting objects
+        # "scoutingmet",                        # MET of scouting objects
+        # "total_scoutingmult",                 # total scouting object multiplicity
+        # "total_scoutingpt",                   # total scouting pt
     ],
     "2d_scalar": [
-        "anomaly_score_l1ht",               
-        "anomaly_score_l1met",             
-        "anomaly_score_total_l1mult",         
-        "anomaly_score_total_l1pt",
-        "anomaly_score_scoutinght",
-        "anomaly_score_scoutingmet",
-        "anomaly_score_total_scoutingmult",   
-        "anomaly_score_total_scoutingpt",
+        # "anomaly_score_l1ht",               
+        # "anomaly_score_l1met",             
+        # "anomaly_score_total_l1mult",         
+        # "anomaly_score_total_l1pt",
+        # "anomaly_score_scoutinght",
+        # "anomaly_score_scoutingmet",
+        # "anomaly_score_total_scoutingmult",   
+        # "anomaly_score_total_scoutingpt",
     ],
     "1d_object": [
-        "n",                                   # object multiplicity
-        "pt",                                  # object pt
-        "pt0",                                 # leading object pt
-        "pt1",                                 # subleading object pt
-        "eta",                                 # object eta
-        "phi",                                 # object phi
+        # "n",                                   # object multiplicity
+        # "pt",                                  # object pt
+        # "pt0",                                 # leading object pt
+        # "pt1",                                 # subleading object pt
+        # "eta",                                 # object eta
+        # "phi",                                 # object phi
     ],
     "2d_object": [
-        "anomaly_score_n",
-        "anomaly_score_pt",
-        "anomaly_score_eta",
-        "anomaly_score_phi",
+        # "anomaly_score_n",
+        # "anomaly_score_pt",
+        # "anomaly_score_eta",
+        # "anomaly_score_phi",
     ],
     "1d_diobject": [ 
-        "m_log",                               # log axis for diobject invariant mass
-        "m_low",                               # low range axis for diobject invariant mass
-        "m_mid",                               # mid range axis for diobject invariant mass
-        "m",                                   # full range axis for diobject invariant mass
+        # "m_log",                               # log axis for diobject invariant mass
+        # "m_low",                               # low range axis for diobject invariant mass
+        # "m_mid",                               # mid range axis for diobject invariant mass
+        # "m",                                   # full range axis for diobject invariant mass
     ],
     "2d_diobject": [
-        "anomaly_score_m_log",
-        "anomaly_score_m_low",
-        "anomaly_score_m_mid",
-        "anomaly_score_m",
+        # "anomaly_score_m_log",
+        # "anomaly_score_m_low",
+        # "anomaly_score_m_mid",
+        # "anomaly_score_m",
     ],
     "dimuon": [
-        "m_log",                               # log axis for dimuon invariant mass
-        "m_low",                               # low range axis for dimuon invariant mass
-        "m_mid",                               # mid range axis for dimuon invariant mass
-        "m",                                   # full range axis for dimuon invariant mass
+        # "m_log",                               # log axis for dimuon invariant mass
+        # "m_low",                               # low range axis for dimuon invariant mass
+        # "m_mid",                               # mid range axis for dimuon invariant mass
+        # "m",                                   # full range axis for dimuon invariant mass
     ]
 }
 
-# which branches to save (comment out unwanted)
+# which branches to save (comment out unwanted list items, leave keys uncommented)
 branch_selection = {
     "dimuon": [
         # "dimuon_mass",                            # mass of dimuon pair
@@ -130,20 +130,20 @@ branch_selection = {
     ]
 }
 
-# which triggers to save (comment out unwanted or add)
+# which triggers to save (comment out unwanted list items, leave keys uncommented)
 triggers = [
     # 'DST_PFScouting_AXOLoose', 
-    'DST_PFScouting_AXONominal', 
-    'DST_PFScouting_AXOTight', 
+    # 'DST_PFScouting_AXONominal', 
+    # 'DST_PFScouting_AXOTight', 
     # 'DST_PFScouting_AXOVLoose', 
-    'DST_PFScouting_AXOVTight',
+    # 'DST_PFScouting_AXOVTight',
     # 'DST_PFScouting_CICADALoose', 
-    'DST_PFScouting_CICADAMedium', 
-    'DST_PFScouting_CICADATight', 
+    # 'DST_PFScouting_CICADAMedium', 
+    # 'DST_PFScouting_CICADATight', 
     # 'DST_PFScouting_CICADAVLoose', 
-    'DST_PFScouting_CICADAVTight',
-    'DST_PFScouting_DoubleMuon',
-    'DST_PFScouting_JetHT',
+    # 'DST_PFScouting_CICADAVTight',
+    # 'DST_PFScouting_DoubleMuon',
+    # 'DST_PFScouting_JetHT',
     'DST_PFScouting_ZeroBias'
 ]
 
