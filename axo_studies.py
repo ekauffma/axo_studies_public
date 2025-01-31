@@ -14,7 +14,6 @@ from collections import defaultdict
 import dask
 from dask.distributed import Client
 import dask_awkward as dak
-import dill
 import hist
 import hist.dask as hda
 import json
@@ -32,6 +31,7 @@ from coffea.dataset_tools import (
     max_chunks,
     preprocess,
 )
+from coffea.util import save
 
 ###################################################################################################
 # PROCESSING OPTIONS
@@ -44,6 +44,7 @@ axo_v = "v4"                               # which axo version to use for score 
 n_files = 1                                # number of files to process (-1 for all)
 coffea_step_size = 50_000                  # step size for coffea processor
 coffea_files_per_batch = 1                 # files per batch for coffea processor
+visualize = True                           # whether to visualize task graph (only enable for a couple files)
 
 # which reco objects to process (comment out unwanted list items)
 reco_objects = [
@@ -1483,19 +1484,16 @@ def main():
         uproot_options={"allow_read_errors_with_report": (OSError, TypeError, KeyError)}
     )
     
-    dask.optimize(to_compute)
-    dask.visualize(to_compute, filename="dask_coffea_graph_combinedTriggers", format="pdf")
-    #to_compute[1].get('Scouting_2024I').visualize(filename="dask_coffea_graph_combinedTriggers", format="png", optimize_graph=False)
-    
+    if visualize:
+        dask.optimize(to_compute)
+        dask.visualize(to_compute, filename="dask_coffea_graph_combinedTriggers", format="pdf")
         
     (hist_result,) = dask.compute(to_compute)
     print(f'{time.time()-tstart:.1f}s to process')
     hist_result = hist_result[0]
 
     #Save file 
-    with open(f'hist_result_{dataset_name}_test.pkl', 'wb') as file:
-            # dump information to that file
-            dill.dump(hist_result, file)
+    save(hist_result, f'hist_result_{dataset_name}_test.pkl')
     
 
 ###################################################################################################
